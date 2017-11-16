@@ -5,12 +5,14 @@ prototype(Flowpack.Website:Component.Molecule.CrewMember) < prototype(PackageFac
 			icon = Flowpack.Website:Component.Atom.CircularImage
 			name = 'Aske Ertmann'
 			pseudo = 'aertmann'
+			url = '#'
 		}
 	}
 
 	icon = null
 	name = null
 	pseudo = null
+	url = null
 
 	renderer = afx`
         <div class="mCrewMember">
@@ -22,7 +24,7 @@ prototype(Flowpack.Website:Component.Molecule.CrewMember) < prototype(PackageFac
 					{props.name}
 				</div>
 				<div class="mCrewMember__pseudo">
-					{props.pseudo}
+					<a href={props.url} target="_blank">{props.pseudo}</a>
 				</div>
 			</div>
         </div>

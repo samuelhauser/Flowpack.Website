@@ -20,5 +20,12 @@ prototype(Flowpack.Website:Document.Project.Template) < prototype(Flowpack.Websi
 				value.uri >
 			}
 		}
+
+		sidebar = Neos.Fusion:Array {
+			members = Flowpack.Website:MembersHighlight {
+				value.title = 'Contributors'
+				value.content.collection = ${Flowpack.Website.GitHub.getContributors(node.githubUri)}
+			}
+		}
 	}
 }
