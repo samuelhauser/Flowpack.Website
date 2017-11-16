@@ -25,5 +25,12 @@ prototype(Flowpack.Website:Document.Home.Template) < prototype(Flowpack.Website:
 			itemName = 'group'
 			itemRenderer = Flowpack.Website:ProjectGroup
 		}
+
+		sidebar = Neos.Fusion:Array {
+			members = Flowpack.Website:MembersHighlight {
+				value.title = 'Flowpackers'
+				value.content.collection = ${Flowpack.Website.GitHub.getMembers()}
+			}
+		}
 	}
 }

@@ -1,0 +1,18 @@
+prototype(Flowpack.Website:MembersHighlight) < prototype(Neos.Fusion:Value) {
+	@context.node = ${this.node ? this.node : node}
+
+	value = Flowpack.Website:Component.Organism.HighlightBox {
+		content = Neos.Fusion:Collection {
+			collection = ${[]}
+			itemName = 'member'
+			itemRenderer = Flowpack.Website:Component.Molecule.CrewMember {
+				icon = Flowpack.Website:Component.Atom.CircularImage {
+					imageUri = ${member.avatar_url}
+				}
+				name = ${member.name}
+				pseudo = ${member.login}
+				url = ${member.url}
+			}
+		}
+	}
+}

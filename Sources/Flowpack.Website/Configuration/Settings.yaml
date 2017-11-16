@@ -4,3 +4,13 @@ Ttree:
       documentPrototype:
         fallback: Flowpack.Website:Document.Default.Template
         suffix: .Template
+
+Neos:
+  Fusion:
+    defaultContext:
+      'Flowpack.Website.GitHub': 'Flowpack\Website\Eel\Helper\GitHubHelper'
+
+Flowpack:
+  Website:
+    github:
+      token: ''
