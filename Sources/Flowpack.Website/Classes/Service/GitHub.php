@@ -56,15 +56,7 @@ class GitHub
         }
 
         foreach ($dataObj as $data) {
-            $user = $this->client->request('https://api.github.com/users/' . $data['login']);
-            $user = \json_decode($user, true);
-
-            $teamMembers[] = [
-                'name' => $user['name'],
-                'login' => $user['login'],
-                'avatar_url' => $user['avatar_url'],
-                'url' => $user['html_url']
-            ];
+            $teamMembers[] = $this->getUser($data['login']);
         }
 
         $this->cache[$uri] = $teamMembers;
@@ -91,5 +83,18 @@ class GitHub
             $this->logger->logException($exception);
         }
         return [];
+    }
+
+    protected function getUser(string $login): array
+    {
+        $user = $this->client->request('https://api.github.com/users/' . $login);
+        $user = \json_decode($user, true);
+
+        return [
+            'name' => $user['name'],
+            'login' => $user['login'],
+            'avatar_url' => $user['avatar_url'],
+            'url' => $user['html_url']
+        ];
     }
 }

@@ -1,0 +1,9 @@
+Flowpack\Website\Aspects\GitHubCachingAspect:
+  properties:
+    cache:
+      object:
+        factoryObjectName: Neos\Flow\Cache\CacheManager
+        factoryMethodName: getCache
+        arguments:
+          1:
+            value: Flowpack_Website_GitHub_Request
